@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multimedia Showcase</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #ffffff;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 123, 255, 0.9);
+      color: white;
+      padding: 15px 0;
+      text-align: center;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffdd57;
+    }
+
+    header {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    header video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(0.6);
+    }
+
+    header .content {
+      position: relative;
+      text-align: center;
+      color: #fff;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    header .content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    header .content p {
+      font-size: 1.3rem;
+    }
+
+    section {
+      padding: 80px 20px 60px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: #222;
+      margin-bottom: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    h2::after {
+      content: "";
+      width: 60px;
+      height: 4px;
+      background: #007bff;
+      display: block;
+      margin: 10px auto 0;
+      border-radius: 5px;
+    }
+
+    .showcase, .features img, .stats img {
+      width: 100%;
+      max-width: 800px;
+      margin: 20px auto;
+      display: block;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .section-description {
+      text-align: center;
+      max-width: 700px;
+      margin: auto;
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #007bff;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      display: none;
+      z-index: 1000;
+    }
+
+    @media (max-width: 768px) {
+      header .content h1 {
+        font-size: 2rem;
+      }
+
+      header .content p {
+        font-size: 1rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .section-description {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#features">Features</a>
+    <a href="#stats">Stats</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#loader">Loader</a>
+  </nav>
+
+  <header id="home">
+    <video autoplay muted loop>
+      <source src="./asset/homepage.mp4" type="video/mp4" />
+    </video>
+    <div class="content">
+      <h1>Welcome to Our Experience</h1>
+      <p>Immersive media, powerful features, real stories</p>
+    </div>
+  </header>
+
+  <section class="features" id="features">
+    <h2>Our Features</h2>
+    <p class="section-description">Explore our latest innovations and capabilities through this visual showcase.</p>
+    <video class="showcase" autoplay loop muted>
+      <source src="./asset/features-services - Copy.mp4" type="video/mp4" />
+    </video>
+    <img src="./asset/cards - Copy.png" alt="Feature Cards" height="400px" />
+  </section>
+
+  <section class="stats" id="stats">
+    <h2>Performance & Stats</h2>
+    <p class="section-description">Backed by data, our services speak for themselves. Check out how we’re performing.</p>
+    <img src="./asset/graph.png" alt="Performance Graph" />
+    <img src="./asset/stats.png" alt="Statistics Overview" />
+  </section>
+
+  <section class="testimonials" id="testimonials">
+    <h2>What People Say</h2>
+    <p class="section-description">Real feedback from our valued customers and partners.</p>
+    <video class="showcase" controls>
+      <source src="./asset/testimonials.mp4" type="video/mp4" />
+    </video>
+    <video class="showcase" controls>
+      <source src="./asset/customer-section.mp4" type="video/mp4" />
+    </video>
+  </section>
+
+  <section class="loader" id="loader">
+    <h2>Interactive Loader</h2>
+    <p class="section-description">Enjoy a preview of our clean loading animations that enhance user experience during transitions and background processes.</p>
+    <video class="showcase" autoplay loop muted>
+      <source src="./asset/loader.mp4" type="video/mp4" />
+    </video>
+  </section>
+
+  <button class="back-to-top" onclick="scrollToTop()">&#8679;</button>
+
+  <script>
+    // Show/Hide back-to-top button
+    window.addEventListener('scroll', () => {
+      const btn = document.querySelector(".back-to-top");
+      if (window.scrollY > 200) {
+        btn.style.display = "block";
+      } else {
+        btn.style.display = "none";
+      }
+    });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Animate sections on scroll
+    const sections = document.querySelectorAll('section');
+    const options = {
+      threshold: 0.1
+    };
+
+    const revealOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.style.opacity = 1;
+        entry.target.style.transform = "translateY(0)";
+        observer.unobserve(entry.target);
+      });
+    }, options);
+
+    sections.forEach(section => {
+      section.style.opacity = 0;
+      section.style.transform = "translateY(50px)";
+      section.style.transition = "all 0.8s ease-out";
+      revealOnScroll.observe(section);
+    });
+  </script>
+</body>
+</html>
